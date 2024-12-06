@@ -1,0 +1,5 @@
+aiohttp
+fastapi
+python-dotenv
+uvicorn
+gunicorn
