@@ -1,10 +1,11 @@
-from typing import Literal, Optional, Union
-from urllib.parse import urlencode, quote
+from typing import Optional
 
 from fastapi import APIRouter
 from fastapi.requests import Request
 from fastapi.responses import RedirectResponse
 
+from api._slug_.stats.badge.types import BadgeStyle, Format
+from api._slug_.stats.badge.utils import generate_url
 from api.utils import get_user_stats
 
 
@@ -13,53 +14,7 @@ __all__: tuple[str, ...] = (
 )
 
 
-Format = Union[
-    Literal["total_days"],          # x days
-    Literal["total_hours"],         # x hours
-    Literal["total_minutes"],       # x minutes
-    Literal["days_and_hours"],      # x days y hours
-    Literal["hours_and_minutes"],   # x hours y minutes
-    Literal["full"],                # x days y hours z minutes
-]
-
-
-BadgeStyle = Union[
-    Literal["flat"],
-    Literal["flat-square"],
-    Literal["for-the-badge"],
-    Literal["plastic"],
-    Literal["social"],
-]
-
-
 router = APIRouter()
-
-
-def _generate_url(
-    label: str,
-    message: str,
-    colour: str,
-    label_color: str,
-    style: BadgeStyle,
-    link: Optional[str],
-) -> str:
-    args = {
-        "labelColor": label_color,
-        "style": style,
-        "link": link,
-        "logo": "steam",
-    }
-    if link is None:
-        del args["link"]
-    return (
-        "https://img.shields.io/badge/"
-        + quote(label)
-        + "-"
-        + quote(message)
-        + "-"
-        + quote(colour)
-        + "?" + urlencode(args)
-    )
 
 
 def _format_playtime(playtime: int, format: Format) -> str:
@@ -106,12 +61,11 @@ async def api_slug_stats_badge(
         playtime=user_stats["total_minutes"],
         format=format,
     )
-    url = _generate_url(
+    return RedirectResponse(url=generate_url(
         label=label,
         colour=colour,
         message=formatted_playtime,
         label_color=label_color,
         style=style,
         link=link,
-    )
-    return RedirectResponse(url=url)
+    ))
