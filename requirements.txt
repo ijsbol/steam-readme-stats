@@ -3,3 +3,4 @@ fastapi
 python-dotenv
 uvicorn
 gunicorn
+redis
