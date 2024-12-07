@@ -57,7 +57,7 @@ async def api_slug_stats_badge_playtime(
     label_color: str = "black",
     style: BadgeStyle = "flat-square",
 ) -> Response:
-    cache_key = f"api_slug_stats_badge_playtime:{steamid}:{label}:{color}:{label_color}:{style}"
+    cache_key = f"api_slug_stats_badge_playtime:{steamid}:{format}:{label}:{color}:{label_color}:{style}"
     cache_response = await redis_cache.get(cache_key)
     if cache_response is None:
         user_stats = await get_user_stats(steamid)
