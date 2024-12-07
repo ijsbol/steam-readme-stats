@@ -20,6 +20,10 @@ app.include_router(api_slug_stats_badge_playtime_router, prefix="/api/{steamid}/
 app.include_router(api_slug_stats_badge_games_router, prefix="/api/{steamid}/stats/badge/games")
 
 
+@app.get("/")
+async def base_route(request: Request) -> RedirectResponse:
+    return RedirectResponse(url="https://github.com/ijsbol/steam-readme-stats")
+
 
 @app.exception_handler(HTTPStatus.NOT_FOUND)
 async def exception_not_found(request: Request, _: Any) -> RedirectResponse:
