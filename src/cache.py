@@ -2,7 +2,11 @@ from typing import Optional, Union
 
 from redis.asyncio import BlockingConnectionPool, Redis
 
-from env import REDIS_HOST_IP, REDIS_PASSWORD, REDIS_PORT
+from env import (
+    REDIS_HOST_IP,
+    REDIS_PASSWORD,
+    REDIS_PORT,
+)
 
 
 __all__: tuple[str, ...] = (

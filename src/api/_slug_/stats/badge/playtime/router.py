@@ -1,5 +1,4 @@
 from aiohttp.client import ClientSession
-
 from fastapi import APIRouter
 from fastapi.requests import Request
 from fastapi.responses import Response

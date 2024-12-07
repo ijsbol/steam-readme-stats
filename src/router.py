@@ -1,11 +1,14 @@
 from http import HTTPStatus
+
+import uvicorn
 from fastapi import FastAPI, Request
 from fastapi.responses import RedirectResponse
-import uvicorn
 
+from api._slug_.stats.badge.games.router import \
+    router as api_slug_stats_badge_games_router
+from api._slug_.stats.badge.playtime.router import \
+    router as api_slug_stats_badge_playtime_router
 from api._slug_.stats.router import router as api_slug_stats_router
-from api._slug_.stats.badge.playtime.router import router as api_slug_stats_badge_playtime_router
-from api._slug_.stats.badge.games.router import router as api_slug_stats_badge_games_router
 
 
 app = FastAPI()

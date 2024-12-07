@@ -1,4 +1,5 @@
 from ast import literal_eval
+
 from aiohttp.client import ClientSession
 
 from api.types import UserStats
