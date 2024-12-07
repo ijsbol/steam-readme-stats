@@ -1,5 +1,3 @@
-
-from typing import Optional
 from urllib.parse import quote, urlencode
 
 from api._slug_.stats.badge.types import BadgeStyle
@@ -21,6 +19,7 @@ def generate_url(
         "labelColor": label_colour,
         "style": style,
         "logo": "steam",
+        "link": "https://steam-readme-stats.uwu.gal/"
     }
     return (
         "https://img.shields.io/badge/"
