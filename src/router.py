@@ -14,4 +14,6 @@ app.include_router(api_slug_stats_badge_playtime_router, prefix="/api/{steamid}/
 app.include_router(api_slug_stats_badge_games_router, prefix="/api/{steamid}/stats/badge/games")
 
 
-uvicorn.run(app)
+
+if __name__ == "__main__":
+    uvicorn.run(app)
