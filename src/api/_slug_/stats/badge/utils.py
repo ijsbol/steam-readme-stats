@@ -14,18 +14,14 @@ def generate_url(
     label: str,
     message: str,
     colour: str,
-    label_color: str,
+    label_colour: str,
     style: BadgeStyle,
-    link: Optional[str],
 ) -> str:
     args = {
-        "labelColor": label_color,
+        "labelColor": label_colour,
         "style": style,
-        "link": link,
         "logo": "steam",
     }
-    if link is None:
-        del args["link"]
     return (
         "https://img.shields.io/badge/"
         + quote(label)

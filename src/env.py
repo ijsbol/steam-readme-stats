@@ -10,6 +10,7 @@ __all__: tuple[str, ...] = (
     "REDIS_PORT",
     "REDIS_PASSWORD",
     "CACHE_STEAM_API_DATA_SECONDS",
+    "CACHE_IMAGE_API_DATA_SECONDS",
 )
 
 
@@ -21,3 +22,4 @@ REDIS_HOST_IP: Final[str] = str(getenv("REDIS_HOST_IP"))
 REDIS_PORT: Final[int] = int(str(getenv("REDIS_PORT")))
 REDIS_PASSWORD: Final[str] = str(getenv("REDIS_PASSWORD"))
 CACHE_STEAM_API_DATA_SECONDS: Final[int] = int(str(getenv("CACHE_STEAM_API_DATA_SECONDS")))
+CACHE_IMAGE_API_DATA_SECONDS: Final[int] = int(str(getenv("CACHE_IMAGE_API_DATA_SECONDS")))
