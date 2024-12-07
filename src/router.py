@@ -1,4 +1,5 @@
 from http import HTTPStatus
+from typing import Any
 
 import uvicorn
 from fastapi import FastAPI, Request
@@ -21,7 +22,7 @@ app.include_router(api_slug_stats_badge_games_router, prefix="/api/{steamid}/sta
 
 
 @app.exception_handler(HTTPStatus.NOT_FOUND)
-async def exception_not_found(request: Request) -> RedirectResponse:
+async def exception_not_found(request: Request, _: Any) -> RedirectResponse:
     return RedirectResponse(url="https://github.com/ijsbol/steam-readme-stats")
 
 
