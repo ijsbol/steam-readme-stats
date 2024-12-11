@@ -15,7 +15,7 @@ Copy paste the following into your readme
 ```
 [![img](https://steam-readme-stats.uwu.gal/api/YOUR_STEAM_USERID_HERE/stats/badge/playtime?format=total_days)](https://steam-readme-stats.uwu.gal/)
 ```
-Where `YOUR_STEAM_ID_HERE` is replaced with your SteamID64 (Dec), which can be found here: https://www.steamidfinder.com
+Where `YOUR_STEAM_ID_HERE` is replaced with your SteamID64 (Dec), which can be found here: https://steamid.pro/
 
 
 ## Documentation
